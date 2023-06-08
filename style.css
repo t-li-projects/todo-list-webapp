@@ -1,0 +1,224 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
+
+:root {
+    /* Universal color pallet*/
+    --completeBlue-: #709EE3;
+    --delete-: #EE6352;
+
+    /* Light mode color pallet*/
+    --progressGreen-: #9BE564;
+    --banner-: #A0C6FF;
+    --completeText-: #989898;
+    --completeText-hover-: #000;
+    --hover-: #F0F0F0;
+    --side-: #B2DCFF;
+    --clearAll-: #6f6f6f;
+    --main-: #FFFFFF;
+    --textcolor-: #000;
+    --progFull-: #FFF;
+    --taskColor-: #000;
+    --checkbox-: #000;
+}
+    /* Dark mode color pallet*/
+@media (prefers-color-scheme: dark) {
+    :root {
+        --progressGreen-: #9BE564;
+        --banner-: #5C88DA;
+        --completeText-: #adabab;
+        --completeText-hover-: #FFF;
+        --hover-: #474747;
+        --side-: #487AD5;
+        --clearAll-: #ADADAD;
+        --main-: #333;
+        --textcolor-: #FFF;
+        --progFull-: #000;
+        --taskColor-: #FFF;
+        --checkbox-: #FFF;
+    }
+}
+
+* {
+    font: inherit;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--side-);
+    color: var(--textcolor-);
+}
+
+main {
+    display: block;
+    width: 800px;
+    min-height: 100dvh;
+    background-color: var(--main-);
+    position: relative;
+    inset: 0;
+    margin: auto;
+    padding: 2.5rem;
+}
+
+.banner {
+    background-color: var(--banner-);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+    .banner > div {
+        height: 60px;
+        width: 180px;
+    }
+
+    .title {
+        font-size: 35px;
+        margin-top: 7px;
+        width: 250px;
+    }
+
+    .progress {
+        text-align: right;
+    }
+
+    .progressFull {
+        width: 100%;
+        background-color: var(--progFull-);
+        border-radius: 3px;
+        margin-top: 10px;
+    }
+  
+    .progressCur {
+        border-radius: 3px;
+        width: 0%;
+        height: 20px;
+        background-color: var(--progressGreen-);
+        transition: 0.3s  ease-in-out;
+    }
+
+.newTask_container {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .newTaskBtn {
+        cursor: pointer;
+        display: inline-flex;
+        line-height: 30px;
+        font-size: 20px;
+        padding: 0.5rem;
+    }
+
+    .plusIcon {
+        height: 30px;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        background-color: var(--completeBlue-);
+        background-image: url(images/add_icon.svg);
+        background-position: center;
+        background-size: 25px;
+        background-repeat: no-repeat;
+        margin-right: 15px;
+    }
+
+    .clearTasks {
+        margin-top: 18px;
+        font-size: 14px;
+        color: var(--clearAll-);
+    }
+
+    .clearTasks:hover {
+        color: var(--delete-);
+        transition: .2s;
+        cursor: pointer;
+    }
+
+
+
+.taskContainer{
+    user-select: none;
+}
+
+.taskContainer > div {  /* task */
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+    .taskContainer > div:hover {
+        background-color: var(--hover-);
+        transition: 0.2s;
+    }
+
+    .taskContainer > div > div {
+        display: flex;
+        padding: 15px 15px;
+    }
+
+        #task {
+            min-width: 500px;
+        }
+
+        .task {
+            color: var(--taskColor-)
+        }
+
+        .checkbox {
+            width: 20px;
+            aspect-ratio: 1;
+            border: 2px solid var(--checkbox-);
+            margin-right: 10px;
+        }
+
+        .right {
+            opacity: 0;
+        }
+
+            .taskContainer > div:hover > .right  {
+                opacity: 1;
+                transition: 0.2s;
+            }
+
+            .right > img {
+                height: 20px;
+                margin-right: 10px;
+                filter: grayscale(100%);
+            }
+
+            .right > img:hover {
+                filter: grayscale(0%);
+                transition: .2s;
+            }
+
+            .right > span {
+                text-decoration: underline;
+                color: var(--completeText-);
+            }
+
+            .right > span:hover {
+                color: var(--completeText-hover-);
+                transition: .2s;
+            }
+
+/* JS toggle classes */
+.completeText {
+    color: var(--completeText-);
+    text-decoration: line-through;
+}
+
+.completeBox {
+    border-color: transparent;
+    background-color: var(--completeBlue-);
+    background-image: url(images/complete_icon.svg);
+    background-size: contain;
+}

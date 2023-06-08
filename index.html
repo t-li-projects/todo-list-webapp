@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My To-do List</title>
+</head>
+<body>
+
+    <main>
+        <div class="banner">
+            <div>
+                <h1 class="title">My To-do List</h1>
+            </div>
+            <div class="progress">
+                <p> <span id="completedTracker">0</span> of <span id="allTracker">0</span> completed </p>
+                <div class="progressFull">
+                    <div class="progressCur"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="newTask_container">
+            <div class="newTaskBtn" title="press space for new task">
+                <div class="plusIcon" ></div> New task
+            </div>
+            <div class="clearTasks">Clear all tasks</div>
+        </div>
+
+        <div class="taskContainer"></div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
